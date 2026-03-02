@@ -1,0 +1,1649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Derrick Njobuenwu, PhD | @donadviser</title>
+  <meta name="description" content="Data Scientist, ML Engineer, Scholar & Men's Wealth & Mindset Coach. UK-based Nigerian building at the intersection of AI, science, and personal power." />
+  <meta property="og:title" content="Derrick Njobuenwu, PhD | @donadviser" />
+  <meta property="og:description" content="Data Scientist. Scholar. Helping men master their money, mindset, and masculinity." />
+  <meta property="og:url" content="https://donadvier.com" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Space+Mono:wght@400;700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --midnight: #080C18;
+      --navy: #0D1425;
+      --navy-light: #131C33;
+      --gold: #C9A23A;
+      --gold-bright: #E4B84A;
+      --gold-dim: #8A6E28;
+      --cream: #F2EDE4;
+      --white: #FFFFFF;
+      --grey: #8A94A6;
+      --grey-light: #C4CAD6;
+      --teal: #1ECBB8;
+      --teal-dim: rgba(30,203,184,0.12);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--midnight);
+      color: var(--cream);
+      font-family: 'Outfit', sans-serif;
+      font-weight: 300;
+      overflow-x: hidden;
+    }
+
+    ::selection { background: var(--gold); color: var(--midnight); }
+
+    /* ── Scrollbar ── */
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: var(--midnight); }
+    ::-webkit-scrollbar-thumb { background: var(--gold-dim); border-radius: 2px; }
+
+    /* ── Noise overlay ── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 1000;
+      opacity: 0.35;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 900;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.25rem 3rem;
+      background: rgba(8,12,24,0.85);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(201,162,58,0.12);
+      transition: all 0.3s ease;
+    }
+
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.35rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      color: var(--gold);
+      text-decoration: none;
+    }
+
+    .nav-logo span { color: var(--cream); font-weight: 300; font-style: italic; }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--grey);
+      text-decoration: none;
+      transition: color 0.25s;
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px; left: 0;
+      width: 0; height: 1px;
+      background: var(--gold);
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover { color: var(--gold); }
+    .nav-links a:hover::after { width: 100%; }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      padding: 8rem 3rem 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Geometric accent background */
+    #hero::before {
+      content: '';
+      position: absolute;
+      top: -20%; right: -10%;
+      width: 700px; height: 700px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(201,162,58,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    #hero::after {
+      content: '';
+      position: absolute;
+      bottom: 5%; left: 30%;
+      width: 400px; height: 400px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(30,203,184,0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-left { position: relative; z-index: 2; }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--teal);
+      border: 1px solid rgba(30,203,184,0.3);
+      padding: 0.4rem 0.9rem;
+      border-radius: 2rem;
+      margin-bottom: 2rem;
+      animation: fadeInUp 0.8s ease both;
+    }
+
+    .hero-badge::before {
+      content: '';
+      width: 6px; height: 6px;
+      background: var(--teal);
+      border-radius: 50%;
+      animation: pulse 2s ease infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.8); }
+    }
+
+    h1.hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3.5rem, 6vw, 5.5rem);
+      font-weight: 300;
+      line-height: 1.0;
+      letter-spacing: -0.02em;
+      color: var(--white);
+      animation: fadeInUp 0.9s 0.1s ease both;
+    }
+
+    h1.hero-title .name-accent {
+      color: var(--gold);
+      font-weight: 700;
+      font-style: italic;
+      display: block;
+    }
+
+    .hero-phd {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--gold-dim);
+      letter-spacing: 0.1em;
+      margin-top: 0.3rem;
+      animation: fadeInUp 0.9s 0.2s ease both;
+    }
+
+    .hero-tagline {
+      margin-top: 1.8rem;
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: var(--grey-light);
+      max-width: 480px;
+      animation: fadeInUp 0.9s 0.3s ease both;
+    }
+
+    .hero-tagline strong {
+      color: var(--cream);
+      font-weight: 500;
+    }
+
+    .hero-dual-role {
+      display: flex;
+      gap: 1rem;
+      margin-top: 2.5rem;
+      animation: fadeInUp 0.9s 0.4s ease both;
+    }
+
+    .role-pill {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.6rem 1.2rem;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.03em;
+    }
+
+    .role-pill.data {
+      background: rgba(201,162,58,0.12);
+      border: 1px solid rgba(201,162,58,0.3);
+      color: var(--gold-bright);
+    }
+
+    .role-pill.mindset {
+      background: rgba(30,203,184,0.08);
+      border: 1px solid rgba(30,203,184,0.25);
+      color: var(--teal);
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: 1rem;
+      margin-top: 2.5rem;
+      animation: fadeInUp 0.9s 0.5s ease both;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.85rem 2rem;
+      background: var(--gold);
+      color: var(--midnight);
+      font-family: 'Space Mono', monospace;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 2px;
+      transition: all 0.25s ease;
+    }
+
+    .btn-primary:hover {
+      background: var(--gold-bright);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(201,162,58,0.35);
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.85rem 2rem;
+      background: transparent;
+      color: var(--cream);
+      font-family: 'Space Mono', monospace;
+      font-size: 0.72rem;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: 1px solid rgba(242,237,228,0.25);
+      border-radius: 2px;
+      transition: all 0.25s ease;
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+      transform: translateY(-2px);
+    }
+
+    /* Hero right visual */
+    .hero-right {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+      animation: fadeIn 1.2s 0.4s ease both;
+    }
+
+    .hero-portrait-wrap {
+      position: relative;
+      width: 340px;
+      height: 420px;
+    }
+
+    .portrait-placeholder {
+      width: 100%; height: 100%;
+      border-radius: 6px;
+      background: linear-gradient(145deg, var(--navy-light), var(--navy));
+      border: 1px solid rgba(201,162,58,0.2);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .portrait-placeholder::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: 
+        radial-gradient(ellipse at 50% 30%, rgba(201,162,58,0.08) 0%, transparent 60%),
+        linear-gradient(to bottom, rgba(201,162,58,0.04), rgba(30,203,184,0.03));
+    }
+
+    .portrait-icon {
+      font-size: 5rem;
+      position: relative;
+      z-index: 1;
+      filter: grayscale(0.2);
+    }
+
+    .portrait-name-card {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+    }
+
+    .portrait-name-card .moniker {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--gold);
+      letter-spacing: 0.15em;
+    }
+
+    .portrait-name-card .location {
+      font-size: 0.78rem;
+      color: var(--grey);
+      margin-top: 0.25rem;
+    }
+
+    /* Gold corner accents */
+    .portrait-placeholder::after {
+      content: '';
+      position: absolute;
+      top: 12px; right: 12px;
+      width: 30px; height: 30px;
+      border-top: 2px solid var(--gold);
+      border-right: 2px solid var(--gold);
+    }
+
+    .corner-bl {
+      position: absolute;
+      bottom: 12px; left: 12px;
+      width: 30px; height: 30px;
+      border-bottom: 2px solid var(--gold);
+      border-left: 2px solid var(--gold);
+    }
+
+    /* Floating stats */
+    .float-stat {
+      position: absolute;
+      background: rgba(13,20,37,0.95);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(201,162,58,0.25);
+      border-radius: 6px;
+      padding: 0.75rem 1rem;
+      animation: floatAnim 4s ease infinite;
+    }
+
+    .float-stat:nth-child(1) { top: -20px; left: -50px; animation-delay: 0s; }
+    .float-stat:nth-child(2) { bottom: 30px; right: -50px; animation-delay: 1.5s; }
+    .float-stat:nth-child(3) { top: 50%; left: -60px; animation-delay: 0.7s; }
+
+    @keyframes floatAnim {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+
+    .float-stat .stat-value {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+    }
+
+    .float-stat .stat-label {
+      font-size: 0.65rem;
+      color: var(--grey);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-top: 0.2rem;
+    }
+
+    /* Social row */
+    .hero-socials {
+      display: flex;
+      gap: 1.25rem;
+      margin-top: 2.5rem;
+      align-items: center;
+      animation: fadeInUp 0.9s 0.6s ease both;
+    }
+
+    .social-link {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      color: var(--grey);
+      text-decoration: none;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.05em;
+      transition: color 0.2s;
+    }
+
+    .social-link svg { width: 16px; height: 16px; }
+    .social-link:hover { color: var(--gold); }
+
+    /* ── SECTION BASICS ── */
+    section {
+      padding: 6rem 3rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      margin-bottom: 3.5rem;
+    }
+
+    .section-eyebrow {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .section-eyebrow::before {
+      content: '';
+      display: block;
+      width: 24px;
+      height: 1px;
+      background: var(--gold);
+    }
+
+    h2.section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 300;
+      line-height: 1.1;
+      color: var(--white);
+    }
+
+    h2.section-title em { color: var(--gold); font-style: italic; }
+
+    /* ── DIVIDER ── */
+    .divider {
+      border: none;
+      border-top: 1px solid rgba(201,162,58,0.1);
+      margin: 0;
+    }
+
+    /* ── ABOUT ── */
+    #about { max-width: 1200px; }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    .about-body {
+      font-size: 1.05rem;
+      line-height: 1.85;
+      color: var(--grey-light);
+    }
+
+    .about-body p + p { margin-top: 1.2rem; }
+
+    .about-body strong {
+      color: var(--cream);
+      font-weight: 500;
+    }
+
+    .about-stats-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    .stat-card {
+      background: var(--navy-light);
+      border: 1px solid rgba(201,162,58,0.12);
+      border-radius: 6px;
+      padding: 1.5rem;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+
+    .stat-card:hover {
+      border-color: rgba(201,162,58,0.35);
+      transform: translateY(-3px);
+    }
+
+    .stat-card .big-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+    }
+
+    .stat-card .stat-desc {
+      font-size: 0.82rem;
+      color: var(--grey);
+      margin-top: 0.4rem;
+      line-height: 1.4;
+    }
+
+    /* ── EXPERIENCE ── */
+    #experience { background: var(--navy); border-radius: 0; margin: 0; padding: 6rem 0; max-width: none; }
+
+    .experience-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 3rem;
+    }
+
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 2rem;
+      padding: 2.5rem 0;
+      border-bottom: 1px solid rgba(201,162,58,0.08);
+      position: relative;
+    }
+
+    .timeline-item:last-child { border-bottom: none; }
+
+    .timeline-meta {
+      padding-top: 0.2rem;
+    }
+
+    .timeline-period {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.68rem;
+      color: var(--gold);
+      letter-spacing: 0.08em;
+      margin-bottom: 0.4rem;
+    }
+
+    .timeline-org {
+      font-size: 0.82rem;
+      color: var(--grey);
+      line-height: 1.5;
+    }
+
+    .timeline-content {}
+
+    .timeline-role {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.45rem;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 0.8rem;
+      line-height: 1.2;
+    }
+
+    .timeline-desc {
+      font-size: 0.9rem;
+      line-height: 1.75;
+      color: var(--grey-light);
+    }
+
+    .timeline-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+
+    .tag {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.08em;
+      padding: 0.25rem 0.65rem;
+      background: rgba(201,162,58,0.08);
+      border: 1px solid rgba(201,162,58,0.2);
+      color: var(--gold-bright);
+      border-radius: 2px;
+    }
+
+    .tag.teal {
+      background: rgba(30,203,184,0.06);
+      border-color: rgba(30,203,184,0.2);
+      color: var(--teal);
+    }
+
+    /* ── RESEARCH ── */
+    .research-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 0.5rem;
+    }
+
+    .research-card {
+      background: var(--navy-light);
+      border: 1px solid rgba(201,162,58,0.1);
+      border-radius: 6px;
+      padding: 1.75rem;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .research-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 2px;
+      background: linear-gradient(90deg, var(--gold), transparent);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s ease;
+    }
+
+    .research-card:hover::before { transform: scaleX(1); }
+    .research-card:hover { border-color: rgba(201,162,58,0.3); transform: translateY(-4px); }
+
+    .research-card .rc-icon {
+      font-size: 1.75rem;
+      margin-bottom: 1rem;
+    }
+
+    .research-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 0.75rem;
+    }
+
+    .research-card p {
+      font-size: 0.85rem;
+      color: var(--grey);
+      line-height: 1.65;
+    }
+
+    /* ── SKILLS ── */
+    #skills { background: linear-gradient(180deg, var(--midnight) 0%, var(--navy) 100%); max-width: none; padding: 6rem 0; margin: 0; }
+
+    .skills-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 3rem;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+    }
+
+    .skill-category {
+      background: rgba(13,20,37,0.7);
+      border: 1px solid rgba(201,162,58,0.1);
+      border-radius: 6px;
+      padding: 1.75rem 2rem;
+    }
+
+    .skill-category h3 {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .skill-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .chip {
+      font-size: 0.78rem;
+      padding: 0.3rem 0.75rem;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 3px;
+      color: var(--grey-light);
+      transition: all 0.2s;
+    }
+
+    .chip:hover {
+      background: rgba(201,162,58,0.1);
+      border-color: rgba(201,162,58,0.3);
+      color: var(--cream);
+    }
+
+    /* Certifications */
+    .cert-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .cert-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.85rem;
+      color: var(--grey-light);
+    }
+
+    .cert-item::before {
+      content: '✦';
+      color: var(--gold);
+      font-size: 0.6rem;
+      flex-shrink: 0;
+    }
+
+    /* ── PERSONAL BRAND ── */
+    #brand {
+      max-width: none;
+      margin: 0;
+      padding: 6rem 0;
+      background: var(--midnight);
+      position: relative;
+      overflow: hidden;
+    }
+
+    #brand::before {
+      content: '';
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 800px; height: 800px;
+      background: radial-gradient(circle, rgba(30,203,184,0.04) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .brand-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 3rem;
+    }
+
+    .brand-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .brand-left {}
+
+    .brand-manifesto {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      font-weight: 300;
+      line-height: 1.4;
+      color: var(--white);
+      font-style: italic;
+      margin: 2rem 0;
+    }
+
+    .brand-manifesto strong {
+      color: var(--gold);
+      font-style: normal;
+      font-weight: 700;
+    }
+
+    .brand-pillars {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      margin-top: 2rem;
+    }
+
+    .pillar {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 1rem 1.25rem;
+      border-left: 2px solid rgba(201,162,58,0.3);
+      transition: border-color 0.3s;
+    }
+
+    .pillar:hover { border-left-color: var(--gold); }
+
+    .pillar-icon { font-size: 1.3rem; flex-shrink: 0; margin-top: 0.1rem; }
+
+    .pillar-text h4 {
+      font-weight: 500;
+      color: var(--cream);
+      margin-bottom: 0.25rem;
+    }
+
+    .pillar-text p {
+      font-size: 0.85rem;
+      color: var(--grey);
+      line-height: 1.55;
+    }
+
+    .brand-right {}
+
+    .daily-post-card {
+      background: var(--navy-light);
+      border: 1px solid rgba(30,203,184,0.2);
+      border-radius: 8px;
+      padding: 2rem;
+      position: relative;
+    }
+
+    .daily-post-card::before {
+      content: '"';
+      position: absolute;
+      top: 0.5rem; left: 1.5rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 5rem;
+      color: rgba(30,203,184,0.15);
+      line-height: 1;
+    }
+
+    .post-day-tag {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      color: var(--teal);
+      margin-bottom: 1.5rem;
+    }
+
+    .post-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem;
+      line-height: 1.65;
+      color: var(--cream);
+      font-style: italic;
+    }
+
+    .post-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 1.5rem;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(30,203,184,0.1);
+    }
+
+    .post-handle {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--grey);
+    }
+
+    .post-platform {
+      font-size: 0.75rem;
+      color: var(--teal);
+    }
+
+    /* ── PUBLICATIONS ── */
+    #publications {
+      max-width: none;
+      margin: 0;
+      padding: 6rem 0;
+      background: var(--navy);
+    }
+
+    .pubs-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 3rem;
+    }
+
+    .journals-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .journal-chip {
+      font-size: 0.8rem;
+      padding: 0.5rem 1rem;
+      background: rgba(201,162,58,0.06);
+      border: 1px solid rgba(201,162,58,0.18);
+      border-radius: 4px;
+      color: var(--gold-bright);
+    }
+
+    .pub-metrics {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .pub-metric {
+      text-align: center;
+      padding: 2rem;
+      background: var(--navy-light);
+      border: 1px solid rgba(201,162,58,0.1);
+      border-radius: 6px;
+    }
+
+    .pub-metric .metric-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3.5rem;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+    }
+
+    .pub-metric .metric-label {
+      font-size: 0.82rem;
+      color: var(--grey);
+      margin-top: 0.5rem;
+    }
+
+    /* ── CONTACT ── */
+    #contact {
+      max-width: none;
+      margin: 0;
+      padding: 6rem 0;
+      background: var(--midnight);
+    }
+
+    .contact-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 3rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    .contact-intro {
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: var(--grey-light);
+      margin-top: 1.5rem;
+    }
+
+    .contact-email-link {
+      display: inline-block;
+      margin-top: 2rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-style: italic;
+      color: var(--gold);
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+
+    .contact-email-link:hover { opacity: 0.75; }
+
+    .contact-links-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .contact-link-card {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1.1rem 1.25rem;
+      background: var(--navy-light);
+      border: 1px solid rgba(201,162,58,0.1);
+      border-radius: 6px;
+      text-decoration: none;
+      color: var(--cream);
+      font-size: 0.88rem;
+      transition: all 0.25s ease;
+    }
+
+    .contact-link-card:hover {
+      border-color: var(--gold);
+      transform: translateY(-2px);
+      background: rgba(201,162,58,0.06);
+    }
+
+    .contact-link-card .link-icon {
+      font-size: 1.3rem;
+      flex-shrink: 0;
+    }
+
+    .contact-link-card .link-info {}
+    .contact-link-card .link-platform {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.6rem;
+      color: var(--gold);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .contact-link-card .link-handle {
+      font-size: 0.82rem;
+      color: var(--grey-light);
+      margin-top: 0.15rem;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid rgba(201,162,58,0.1);
+      padding: 2rem 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    footer p {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.65rem;
+      color: var(--grey);
+      letter-spacing: 0.05em;
+    }
+
+    footer .footer-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      color: var(--gold);
+      font-weight: 600;
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    /* ── INTERSECTION OBSERVER REVEAL ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── MOBILE ── */
+    @media (max-width: 900px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { gap: 1.5rem; }
+      .nav-links li:nth-child(n+4) { display: none; }
+
+      #hero { grid-template-columns: 1fr; padding: 7rem 1.5rem 4rem; }
+      .hero-right { display: none; }
+
+      section { padding: 4rem 1.5rem; }
+
+      .about-grid, .brand-grid, .contact-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      .research-grid { grid-template-columns: 1fr; }
+      .skills-grid { grid-template-columns: 1fr; }
+      .pub-metrics { grid-template-columns: 1fr; }
+      .contact-links-grid { grid-template-columns: 1fr; }
+      .timeline-item { grid-template-columns: 1fr; gap: 0.5rem; }
+
+      .experience-inner, .brand-inner, .pubs-inner, .skills-inner, .contact-inner { padding: 0 1.5rem; }
+
+      .hero-dual-role { flex-direction: column; gap: 0.75rem; }
+    }
+
+    /* Mobile nav hamburger */
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--cream);
+    }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .mobile-menu-btn { display: block; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="main-nav">
+    <a class="nav-logo" href="#hero">don<span>adviser</span></a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Career</a></li>
+      <li><a href="#research">Research</a></li>
+      <li><a href="#brand">The Brand</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="mobile-menu-btn" aria-label="Menu">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-left">
+      <div class="hero-badge">🇳🇬 Nigerian · UK-Based · @donadviser</div>
+      <h1 class="hero-title">
+        Derrick
+        <span class="name-accent">Njobuenwu</span>
+      </h1>
+      <p class="hero-phd">PhD · BSc (Hons) · Higher Statistical Data Scientist</p>
+      <p class="hero-tagline">
+        <strong>Data Scientist. Scholar. Builder.</strong> I work at the intersection of machine learning, 
+        statistical science, and personal mastery — helping institutions make sense of data 
+        and helping men master their money, mindset, and masculinity.
+      </p>
+      <div class="hero-dual-role">
+        <div class="role-pill data">⚗️ ML & AI Engineer · ONS</div>
+        <div class="role-pill mindset">💎 Men's Wealth & Mindset</div>
+      </div>
+      <div class="hero-ctas">
+        <a href="#experience" class="btn-primary">View My Work →</a>
+        <a href="#contact" class="btn-secondary">Get in Touch</a>
+      </div>
+      <div class="hero-socials">
+        <!-- X/Twitter -->
+        <a class="social-link" href="https://twitter.com/donadviser" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.739l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          @donadviser
+        </a>
+        <!-- LinkedIn -->
+        <a class="social-link" href="https://linkedin.com/in/donadviser" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+          LinkedIn
+        </a>
+        <!-- GitHub -->
+        <a class="social-link" href="https://github.com/donadviser" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+          GitHub
+        </a>
+        <!-- Medium -->
+        <a class="social-link" href="https://medium.com/@donadviser" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.54 12a6.8 6.8 0 0 1-6.77 6.82A6.8 6.8 0 0 1 0 12a6.8 6.8 0 0 1 6.77-6.82A6.8 6.8 0 0 1 13.54 12zm7.42 0c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/></svg>
+          Medium
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <div class="hero-portrait-wrap">
+        <!-- Floating stats -->
+        <div class="float-stat">
+          <div class="stat-value">76+</div>
+          <div class="stat-label">Publications</div>
+        </div>
+        <div class="float-stat">
+          <div class="stat-value">744+</div>
+          <div class="stat-label">Citations</div>
+        </div>
+        <div class="float-stat">
+          <div class="stat-value">10+</div>
+          <div class="stat-label">Yrs Experience</div>
+        </div>
+
+        <div class="portrait-placeholder">
+          <div class="portrait-icon">👤</div>
+          <div class="portrait-name-card">
+            <div class="moniker">@donadviser</div>
+            <div class="location">📍 West Yorkshire, UK</div>
+          </div>
+          <div class="corner-bl"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="section-header reveal">
+      <div class="section-eyebrow">Who I Am</div>
+      <h2 class="section-title">Scholar, Engineer, <em>Builder</em></h2>
+    </div>
+    <div class="about-grid">
+      <div class="about-body reveal">
+        <p>
+          I'm <strong>Derrick Ovunda Njobuenwu, PhD</strong> — a UK-based Nigerian data scientist, machine learning engineer, and former academic researcher. Born in Rivers State, Nigeria, I came to the UK on a <strong>Commonwealth Scholarship</strong>, earned my PhD from the University of Leeds focused on Computational Fluid Dynamics, and went on to publish extensively across nuclear engineering and fluid mechanics.
+        </p>
+        <p>
+          Today I work as a <strong>Higher Statistical Data Scientist at the Office for National Statistics (ONS)</strong>, delivering AI and ML solutions at scale — including a 40× performance improvement on the UK's GDP estimation pipelines. I lead, build, and mentor across cloud platforms, big data, and agentic AI systems.
+        </p>
+        <p>
+          Beyond the data lab, I've built a growing community under the <strong>@donadviser</strong> handle — dedicated to helping men master their money, mindset, and masculinity. I believe rigorous thinking and disciplined character are the foundations of real wealth.
+        </p>
+        <p>
+          I am a member of the Institute of Physics, IChemE, NSE/COREN, and the UK Fluids Network. I hold certifications in Azure AI, AWS Cloud, Neural Networks, and AI Fairness.
+        </p>
+      </div>
+      <div class="about-stats-grid reveal">
+        <div class="stat-card">
+          <div class="big-num">10+</div>
+          <div class="stat-desc">Years in advanced analytics, scientific computing & data science</div>
+        </div>
+        <div class="stat-card">
+          <div class="big-num">40×</div>
+          <div class="stat-desc">Pipeline performance improvement delivered at ONS</div>
+        </div>
+        <div class="stat-card">
+          <div class="big-num">5+</div>
+          <div class="stat-desc">Years delivering production ML/AI in industry & government</div>
+        </div>
+        <div class="stat-card">
+          <div class="big-num">11</div>
+          <div class="stat-desc">Multi-disciplinary team members led across projects</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- EXPERIENCE -->
+  <div id="experience">
+    <div class="experience-inner">
+      <div class="section-header reveal">
+        <div class="section-eyebrow">Professional Journey</div>
+        <h2 class="section-title">Where I've <em>Built</em></h2>
+      </div>
+      <div class="timeline">
+
+        <div class="timeline-item reveal">
+          <div class="timeline-meta">
+            <div class="timeline-period">DEC 2024 – PRESENT</div>
+            <div class="timeline-org">Office for National Statistics<br />Greater Manchester, UK</div>
+          </div>
+          <div class="timeline-content">
+            <div class="timeline-role">Higher Statistical Data Scientist</div>
+            <div class="timeline-desc">
+              Leading delivery of reproducible analytical pipelines (RAP) covering the Monthly Business Survey and Construction Surveys — which together represent 96% of the UK economy. Delivered a 40× performance improvement over legacy systems using Python, PySpark, and AWS. Providing analytical assurance across GDP estimation workflows and driving MLOps standards across ONS. Served on the Planning Committee for the inaugural ONS Data Science Conference.
+            </div>
+            <div class="timeline-tags">
+              <span class="tag">Python</span><span class="tag">PySpark</span><span class="tag">AWS</span>
+              <span class="tag">ML Pipelines</span><span class="tag">Statistical Modelling</span>
+              <span class="tag teal">Government</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal">
+          <div class="timeline-meta">
+            <div class="timeline-period">2022 – 2024</div>
+            <div class="timeline-org">Industry & Consulting<br />UK (Various)</div>
+          </div>
+          <div class="timeline-content">
+            <div class="timeline-role">Senior Data Scientist / ML Engineer</div>
+            <div class="timeline-desc">
+              Led strategic migrations of critical datasets, deployed advanced AI/ML models including LLMs, NLP, computer vision, and agentic workflows. Orchestrated substantial cost reductions and drove revenue growth through data-driven strategies. Built end-to-end ML pipelines — ingestion, validation, transformation, training, deployment, and prediction — integrated into production environments.
+            </div>
+            <div class="timeline-tags">
+              <span class="tag">LLMs</span><span class="tag">Agentic AI</span><span class="tag">OpenCV</span>
+              <span class="tag">LangChain</span><span class="tag">RAG</span><span class="tag teal">MLOps</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal">
+          <div class="timeline-meta">
+            <div class="timeline-period">2010 – 2022</div>
+            <div class="timeline-org">University of Leeds & UK Universities<br />Leeds, UK</div>
+          </div>
+          <div class="timeline-content">
+            <div class="timeline-role">Academic Researcher & Lecturer</div>
+            <div class="timeline-desc">
+              Managed multimillion-pound EPSRC/DISTINCTIVE research projects on nuclear waste sludge mobilisation and transport, in collaboration with Sellafield and UK universities. Pioneered large eddy simulation (LES) of microbubbles, inertial fibers, and turbulent flow modelling. Published 76+ peer-reviewed papers with ~744 citations across top-tier journals. Supervised PhD students, delivered lectures, and contributed to the UK Fluids Network.
+            </div>
+            <div class="timeline-tags">
+              <span class="tag">CFD / LES / DEM</span><span class="tag">OpenFOAM</span>
+              <span class="tag">MPI-LPT</span><span class="tag">Nuclear Engineering</span>
+              <span class="tag teal">EPSRC Funded</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- RESEARCH -->
+  <section id="research">
+    <div class="section-header reveal">
+      <div class="section-eyebrow">Academic Research</div>
+      <h2 class="section-title">Science at the <em>Frontier</em></h2>
+    </div>
+    <div class="research-grid">
+      <div class="research-card reveal">
+        <div class="rc-icon">💧</div>
+        <h3>Turbulent Flow Modelling</h3>
+        <p>Large Eddy Simulation (LES) of microbubbles, inertial fibres, and particles in turbulent pipe and channel flows. Modelling agglomeration, deposition, and separation dynamics.</p>
+      </div>
+      <div class="research-card reveal">
+        <div class="rc-icon">☢️</div>
+        <h3>Nuclear Waste Applications</h3>
+        <p>EPSRC/DISTINCTIVE-funded work on mobilisation and transport of nuclear sludge in legacy ponds. Direct collaboration with Sellafield Ltd and multiple UK universities.</p>
+      </div>
+      <div class="research-card reveal">
+        <div class="rc-icon">🌊</div>
+        <h3>Computational Fluid Dynamics</h3>
+        <p>MPI-based LES-LPT codes, OpenFOAM RANS simulations, and Discrete Element Methods (DEM). Focus on thermo-fluid engineering and multi-phase flows.</p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- SKILLS -->
+  <div id="skills">
+    <div class="skills-inner">
+      <div class="section-header reveal">
+        <div class="section-eyebrow">Technical Expertise</div>
+        <h2 class="section-title">The <em>Toolkit</em></h2>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-category reveal">
+          <h3>🤖 ML & AI</h3>
+          <div class="skill-chips">
+            <span class="chip">LLMs</span><span class="chip">Agentic AI</span><span class="chip">RAG</span>
+            <span class="chip">NLP / BERT</span><span class="chip">LangChain</span>
+            <span class="chip">XGBoost</span><span class="chip">Deep Learning</span>
+            <span class="chip">Computer Vision</span><span class="chip">Transformers</span>
+            <span class="chip">HuggingFace</span><span class="chip">Scikit-learn</span>
+            <span class="chip">TensorFlow</span><span class="chip">PyTorch</span>
+          </div>
+        </div>
+        <div class="skill-category reveal">
+          <h3>⚙️ MLOps & Cloud</h3>
+          <div class="skill-chips">
+            <span class="chip">AWS (SageMaker, EC2, S3, Bedrock)</span>
+            <span class="chip">Azure ML Studio</span><span class="chip">Databricks</span>
+            <span class="chip">Docker</span><span class="chip">Kubernetes</span>
+            <span class="chip">MLflow</span><span class="chip">ZenML</span>
+            <span class="chip">CI/CD</span><span class="chip">FastAPI</span>
+            <span class="chip">GitHub Actions</span><span class="chip">Streamlit</span>
+          </div>
+        </div>
+        <div class="skill-category reveal">
+          <h3>💻 Programming & Data</h3>
+          <div class="skill-chips">
+            <span class="chip">Python</span><span class="chip">PySpark</span>
+            <span class="chip">SQL</span><span class="chip">R</span>
+            <span class="chip">Bash</span><span class="chip">JavaScript</span>
+            <span class="chip">Pandas</span><span class="chip">NumPy</span>
+            <span class="chip">Snowflake</span><span class="chip">MongoDB</span>
+            <span class="chip">PostgreSQL</span><span class="chip">DuckDB</span>
+          </div>
+        </div>
+        <div class="skill-category reveal">
+          <h3>🏅 Certifications</h3>
+          <div class="cert-list">
+            <div class="cert-item">Microsoft Azure AI / Data Scientist Associate</div>
+            <div class="cert-item">AWS Cloud Practitioner</div>
+            <div class="cert-item">Neural Networks & Deep Learning (DeepLearning.AI)</div>
+            <div class="cert-item">Machine Learning with Python (IBM)</div>
+            <div class="cert-item">AI Fairness & Bias (IBM)</div>
+            <div class="cert-item">Databricks Data Engineer Associate</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- PERSONAL BRAND -->
+  <div id="brand">
+    <div class="brand-inner">
+      <div class="section-header reveal">
+        <div class="section-eyebrow">The Donadviser Brand</div>
+        <h2 class="section-title">Mastery of <em>Money, Mindset &amp; Masculinity</em></h2>
+      </div>
+      <div class="brand-grid">
+        <div class="brand-left reveal">
+          <p class="brand-manifesto">
+            Helping men <strong>deconstruct the path</strong> to wealth and personal power.
+          </p>
+          <p style="color: var(--grey-light); font-size: 0.95rem; line-height: 1.8;">
+            Beyond the data lab, I've built a growing online community rooted in the belief that true wealth is built on character, discipline, and long-range thinking. Every day I share real insights on the habits and principles that separate those who drift from those who build — drawn from the same rigour I apply to science.
+          </p>
+          <div class="brand-pillars">
+            <div class="pillar">
+              <div class="pillar-icon">💰</div>
+              <div class="pillar-text">
+                <h4>Money</h4>
+                <p>Wealth-building frameworks, financial clarity, and long-term investment thinking for men serious about financial freedom.</p>
+              </div>
+            </div>
+            <div class="pillar">
+              <div class="pillar-icon">🧠</div>
+              <div class="pillar-text">
+                <h4>Mindset</h4>
+                <p>Discipline, clarity, patience, and long-term thinking. The mental architecture that underpins every achievement.</p>
+              </div>
+            </div>
+            <div class="pillar">
+              <div class="pillar-icon">🛡️</div>
+              <div class="pillar-text">
+                <h4>Masculinity</h4>
+                <p>Identity, purpose, and character. Becoming a man of substance — grounded in values, led by principles.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="brand-right reveal">
+          <div class="daily-post-card">
+            <div class="post-day-tag">#DayOf365 — Daily Wisdom Series</div>
+            <p class="post-text">
+              "Discipline is not a prison. It is the only door to freedom that actually opens from the inside. Most men are standing at locked doors, waiting for permission. Stop waiting."
+            </p>
+            <div class="post-footer">
+              <span class="post-handle">@donadviser · 1,057 followers</span>
+              <span class="post-platform">𝕏 Twitter · Instagram · YouTube</span>
+            </div>
+          </div>
+          <div style="margin-top: 1.5rem; display: flex; gap: 1rem; flex-wrap: wrap;">
+            <a href="https://twitter.com/donadviser" target="_blank" rel="noopener" class="btn-secondary" style="flex: 1; justify-content: center; min-width: 140px;">Follow on 𝕏</a>
+            <a href="https://instagram.com/donadviser" target="_blank" rel="noopener" class="btn-secondary" style="flex: 1; justify-content: center; min-width: 140px;">Instagram</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- PUBLICATIONS -->
+  <div id="publications">
+    <div class="pubs-inner">
+      <div class="section-header reveal">
+        <div class="section-eyebrow">Peer-Reviewed Research</div>
+        <h2 class="section-title">Published <em>Science</em></h2>
+      </div>
+      <div class="pub-metrics reveal">
+        <div class="pub-metric">
+          <div class="metric-num">76+</div>
+          <div class="metric-label">Peer-Reviewed Publications</div>
+        </div>
+        <div class="pub-metric">
+          <div class="metric-num">744+</div>
+          <div class="metric-label">Total Citations</div>
+        </div>
+        <div class="pub-metric">
+          <div class="metric-num">12+</div>
+          <div class="metric-label">Years of Research</div>
+        </div>
+      </div>
+      <p style="margin-top: 2rem; color: var(--grey-light); font-size: 0.95rem; line-height: 1.75;" class="reveal">
+        Published across leading international journals in fluid mechanics, chemical engineering, and multiphase flow. Key contributions include fundamental studies on turbulent transport of inertial particles, microbubbles, and fibres with direct industrial relevance to the nuclear sector.
+      </p>
+      <div class="journals-list reveal">
+        <span class="journal-chip">AIChE Journal</span>
+        <span class="journal-chip">Physics of Fluids</span>
+        <span class="journal-chip">International Journal of Multiphase Flow</span>
+        <span class="journal-chip">Chemical Engineering Science</span>
+        <span class="journal-chip">Journal of Fluid Mechanics</span>
+      </div>
+      <div style="margin-top: 1rem;" class="reveal">
+        <a href="https://www.researchgate.net/profile/Derrick-Njobuenwu" target="_blank" rel="noopener" class="btn-primary" style="display: inline-flex;">View on ResearchGate →</a>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- CONTACT -->
+  <div id="contact">
+    <div class="contact-inner">
+      <div class="reveal">
+        <div class="section-eyebrow">Get In Touch</div>
+        <h2 class="section-title">Let's <em>Connect</em></h2>
+        <p class="contact-intro">
+          Whether you want to collaborate on a data science project, discuss AI/ML research, invite me to speak, or join the journey of building a better life — I'd love to hear from you.
+        </p>
+        <a class="contact-email-link" href="mailto:derrick@donadviser.com">derrick@donadviser.com</a>
+      </div>
+      <div class="reveal">
+        <div class="section-eyebrow" style="margin-bottom: 1.5rem;">Find Me Online</div>
+        <div class="contact-links-grid">
+          <a class="contact-link-card" href="https://linkedin.com/in/donadviser" target="_blank" rel="noopener">
+            <span class="link-icon">💼</span>
+            <div class="link-info">
+              <div class="link-platform">LinkedIn</div>
+              <div class="link-handle">/in/donadviser</div>
+            </div>
+          </a>
+          <a class="contact-link-card" href="https://github.com/donadviser" target="_blank" rel="noopener">
+            <span class="link-icon">🐙</span>
+            <div class="link-info">
+              <div class="link-platform">GitHub</div>
+              <div class="link-handle">@donadviser · 28 repos</div>
+            </div>
+          </a>
+          <a class="contact-link-card" href="https://twitter.com/donadviser" target="_blank" rel="noopener">
+            <span class="link-icon">𝕏</span>
+            <div class="link-info">
+              <div class="link-platform">Twitter / X</div>
+              <div class="link-handle">@donadviser</div>
+            </div>
+          </a>
+          <a class="contact-link-card" href="https://instagram.com/donadviser" target="_blank" rel="noopener">
+            <span class="link-icon">📸</span>
+            <div class="link-info">
+              <div class="link-platform">Instagram</div>
+              <div class="link-handle">@donadviser</div>
+            </div>
+          </a>
+          <a class="contact-link-card" href="https://medium.com/@donadviser" target="_blank" rel="noopener">
+            <span class="link-icon">📝</span>
+            <div class="link-info">
+              <div class="link-platform">Medium</div>
+              <div class="link-handle">@donadviser</div>
+            </div>
+          </a>
+          <a class="contact-link-card" href="https://youtube.com/@donadviser" target="_blank" rel="noopener">
+            <span class="link-icon">▶️</span>
+            <div class="link-info">
+              <div class="link-platform">YouTube</div>
+              <div class="link-handle">@donadviser</div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">donadviser</div>
+    <p>© 2025 Derrick Ovunda Njobuenwu, PhD · donadvier.com · Built with purpose.</p>
+    <p>🇳🇬 → 🇬🇧 · @donadviser</p>
+  </footer>
+
+  <script>
+    // Scroll reveal
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    reveals.forEach(el => observer.observe(el));
+
+    // Staggered reveals on children
+    document.querySelectorAll('.research-grid, .about-stats-grid').forEach(grid => {
+      grid.querySelectorAll('.research-card, .stat-card').forEach((card, i) => {
+        card.style.transitionDelay = `${i * 0.1}s`;
+      });
+    });
+
+    // Nav shadow on scroll
+    window.addEventListener('scroll', () => {
+      const nav = document.getElementById('main-nav');
+      if (window.scrollY > 60) {
+        nav.style.boxShadow = '0 4px 30px rgba(0,0,0,0.4)';
+      } else {
+        nav.style.boxShadow = 'none';
+      }
+    });
+
+    // Active nav highlight
+    const sections = document.querySelectorAll('section[id], div[id]');
+    const navLinks = document.querySelectorAll('.nav-links a');
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(s => {
+        if (window.scrollY >= s.offsetTop - 100) current = s.id;
+      });
+      navLinks.forEach(link => {
+        link.style.color = link.getAttribute('href') === `#${current}` ? 'var(--gold)' : '';
+      });
+    });
+
+    // Typing effect for hero badge
+    const badge = document.querySelector('.hero-badge');
+    if (badge) {
+      const text = badge.textContent;
+      badge.textContent = '';
+      badge.style.opacity = '1';
+      let i = 0;
+      const interval = setInterval(() => {
+        badge.textContent += text[i];
+        i++;
+        if (i >= text.length) clearInterval(interval);
+      }, 30);
+    }
+  </script>
+</body>
+</html>
