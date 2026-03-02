@@ -326,7 +326,9 @@
       justify-content: center;
       gap: 1rem;
       overflow: hidden;
-      position: relative;
+      position: absolute;  /* ← CHANGE from relative to absolute */
+      z-index: 1;          /* ← ADD THIS */
+      inset: 0;            /* ← ADD THIS (fills the wrap) */
     }
 
     .portrait-placeholder::before {
@@ -391,6 +393,7 @@
       border-radius: 6px;
       padding: 0.75rem 1rem;
       animation: floatAnim 4s ease infinite;
+      z-index: 10;  /* ← ADD THIS */
     }
 
     .float-stat:nth-child(1) { top: -20px; left: -50px; animation-delay: 0s; }
@@ -1196,15 +1199,15 @@
     <div class="hero-right">
       <div class="hero-portrait-wrap">
         <!-- Floating stats -->
-        <div class="float-stat" style="position:relative; z-index:10;">
+        <div class="float-stat">
           <div class="stat-value">76+</div>
           <div class="stat-label">Publications</div>
         </div>
-        <div class="float-stat" style="position:relative; z-index:10;">
+        <div class="float-stat">
           <div class="stat-value">744+</div>
           <div class="stat-label">Citations</div>
         </div>
-        <div class="float-stat" style="position:relative; z-index:10;">
+        <div class="float-stat">
           <div class="stat-value">10+</div>
           <div class="stat-label">Yrs Experience</div>
         </div>
